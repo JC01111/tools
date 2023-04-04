@@ -2,6 +2,7 @@ import requests
 import re
 from bs4 import BeautifulSoup
 from datetime import datetime
+import datetime
 
 # Get the link of the website
 req = requests.get("https://www.google.com/finance/quote/USD-CNY?sa=X&ved=2ahUKEwiD3_b04df9AhU6FzQIHdXoDpcQmY0JegQIBhAd")
@@ -9,11 +10,17 @@ req = requests.get("https://www.google.com/finance/quote/USD-CNY?sa=X&ved=2ahUKE
 # Web scraper tool
 soup = BeautifulSoup(req.content, "html.parser")
 
+# Get current date and time
+now1 = datetime.datetime.now()
+
+# Get current month's abbreviation
+month_abbr = now1.strftime("%b")
+
 # First get the text of the web page, then split the strings with ""
 text = soup.get_text().split()
 
 # Requirement of keyword
-pattern = re.compile(r'^CNY(\d+\.\d+)Mar')
+pattern = re.compile(r'^CNY(\d+\.\d+)' + month_abbr)
 
 # For loop to find the specific string satifies the pattern
 for string in text:
@@ -25,10 +32,10 @@ for string in text:
 def ask():
     print("####### New Program #######")
     # Get the latest date and time
-    now = datetime.now()
+    now = datetime.datetime.now()
     time = now.strftime("%m/%d/%Y %H:%M:%S")
     print("Currency: " + str(var) + "\n" + time + "\n")
-    #"""
+
     choice = int(input("'1' start with latest ratio, '2' use different ratio:, '3' to exit: "))
     if choice == 1:
         calculate()
