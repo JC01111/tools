@@ -50,12 +50,12 @@ def calculate():
     amount = input("Enter the amount: ")
     if way == 1:
         print("Current ratio: " + var)
-        print("Amount of $:", round((float(amount) / float(ratio)), 4))
+        print("Amount of $", round((float(amount) / float(ratio)), 4))
         print("\n")
         print("\n")
     elif way == 2:
         print("Current ratio: " + var)
-        print("Amount of ¥:", round((float(amount) * float(ratio)), 4))
+        print("Amount of ¥", round((float(amount) * float(ratio)), 4))
         print("\n")
         print("\n")
     ask()
@@ -65,11 +65,11 @@ def calculate2():
     ratio = input("Enter the ratio: ")
     amount = input("Enter the amount: ")
     if way == 1:
-        print("Amount of $:", round((float(amount) / float(ratio)), 4))
+        print("Amount of $", round((float(amount) / float(ratio)), 4))
         print("\n")
         print("\n")
     elif way == 2:
-        print("Amount of ¥:", round((float(amount) * float(ratio)), 4))
+        print("Amount of ¥", round((float(amount) * float(ratio)), 4))
         print("\n")
         print("\n")
     ask()
