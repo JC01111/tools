@@ -4,16 +4,15 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 import datetime
 
-# Get the link of the website
-req = requests.get("https://www.google.com/finance/quote/USD-CNY?sa=X&ved=2ahUKEwiD3_b04df9AhU6FzQIHdXoDpcQmY0JegQIBhAd")
-# Web scraper tool
-soup = BeautifulSoup(req.content, "html.parser")
-
 # Get current date and time
 now1 = datetime.datetime.now()
 # Get current month's abbreviation
 month_abbr = now1.strftime("%b")
 
+# Get the link of the website
+req = requests.get("https://www.google.com/finance/quote/USD-CNY?sa=X&ved=2ahUKEwiD3_b04df9AhU6FzQIHdXoDpcQmY0JegQIBhAd")
+# Web scraper tool
+soup = BeautifulSoup(req.content, "html.parser")
 # First get the text of the web page, then split the strings with ""
 text = soup.get_text().split()
 
